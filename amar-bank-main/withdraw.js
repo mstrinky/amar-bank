@@ -35,6 +35,10 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
    const previousBalanceTotalString = balanceTotalElement.innerText;
    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
 //    console.log(previousBalanceTotal);
+if(newWithdrawAmount > previousBalanceTotal){
+   alert('amar bank a ato tk nai');
+   return;
+}
 
 // step-6:
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
