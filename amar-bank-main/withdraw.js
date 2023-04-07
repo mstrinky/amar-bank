@@ -20,6 +20,14 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
    const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 //    console.log(newWithdrawAmount);
 
+// step-7:
+withdrawField.value = ''; 
+
+if(isNaN(newWithdrawAmount)){
+   alert('please provide a valid number');
+   return;
+}
+
    // step-3:
    const withdrawTotalElement = document.getElementById('withdraw-total');
    const previousWithdrawTotalString = withdrawTotalElement.innerText;
@@ -27,23 +35,28 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
 //    console.log(previousWithdrawTotal);
 
    // step-4:
-   currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-   withdrawTotalElement.innerText = currentWithdrawTotal;
 
    // step-5:
    const balanceTotalElement = document.getElementById('balance-total');
    const previousBalanceTotalString = balanceTotalElement.innerText;
    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
 //    console.log(previousBalanceTotal);
+
+
+
 if(newWithdrawAmount > previousBalanceTotal){
    alert('amar bank a ato tk nai');
    return;
 }
 
+
+currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+withdrawTotalElement.innerText = currentWithdrawTotal;
+
+
 // step-6:
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     balanceTotalElement.innerText = newBalanceTotal;
 
-   // step-7:
-   withdrawField.value = '';
+   
 })
